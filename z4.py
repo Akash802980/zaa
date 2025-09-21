@@ -6,7 +6,7 @@ from datetime import datetime
 zee_m3u_url = "https://raw.githubusercontent.com/alex8875/m3u/refs/heads/main/z5.m3u"
 
 # Playlist file
-m3u_file = "backend.m3u"
+m3u_file = "z4.m3u"
 
 
 def get_zee_token():
