@@ -1,0 +1,28 @@
+name: Run z4.py Daily
+
+on:
+  schedule:
+    - cron: "39 1 * * *"   # रोज़ाना 01:39 AM UTC पर run होगा
+  workflow_dispatch:        # manually भी चला सकते हो
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install requirements (if any)
+        run: |
+          pip install -r requirements.txt || true
+
+      - name: Wait until 01:39:18
+        run: sleep 18
+
+      - name: Run z4.py
+        run: python z4.py
